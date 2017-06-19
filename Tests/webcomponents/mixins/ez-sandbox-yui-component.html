@@ -9,18 +9,26 @@
         <script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
         <script src="../../../web-component-tester/browser.js"></script>
 
-        <link rel="import" href="/Resources/public/webcomponents/ez-subitem.html">
         <link rel="import" href="/Resources/public/webcomponents/mixins/ez-sandbox-yui-component.html">
+        <script>
+        window.addEventListener('WebComponentsReady', function () {
+            class TestElement extends eZ.SandboxYUIComponentMixin(Polymer.Element) {
+                static get is() {
+                    return 'ez-test-yui-component';
+                }
+            }
+            window.customElements.define(TestElement.is, TestElement);
+        });
+        </script>
     </head>
     <body>
 
         <test-fixture id="BasicTestFixture">
             <template>
-                <ez-subitem parent-location-id="42">Loading subitems...</ez-subitem>
+                <ez-test-yui-componentt></ez-test-yui-component>
             </template>
         </test-fixture>
 
-        <script src="js/ez-subitem.js"></script>
+        <script src="js/ez-sandbox-yui-component.js"></script>
     </body>
 </html>
-
